@@ -7,6 +7,7 @@ class LoginController < ApplicationController
 
   def create
     hash = auth_hash
+    session[:uid] = hash["uid"]
     redirect_to dashboard_path
   end
 
