@@ -5,7 +5,7 @@ class LoginController < ApplicationController
 
   def create
     hash = auth_hash
-    fail
+    redirect_to dashboard_path
   end
 
   def auth_hash
