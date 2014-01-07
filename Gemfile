@@ -5,10 +5,12 @@ gem 'rails', '4.0.2'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
+gem 'haml'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec', require: false
+  gem 'capybara'
 end
 
 # Use SCSS for stylesheets
