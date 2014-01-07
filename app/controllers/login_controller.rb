@@ -1,5 +1,7 @@
 class LoginController < ApplicationController
 
+  respond_to :json, :only => :create
+
   def index
   end
 
