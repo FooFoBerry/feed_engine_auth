@@ -7,9 +7,15 @@ gem 'rails', '4.0.2'
 gem 'pg'
 gem 'haml'
 
+gem 'omniauth'
+gem 'omniauth-github', :git => 'git://github.com/intridea/omniauth-github.git'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec', require: false
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'jazz_hands'
   gem 'capybara'
 end
 
