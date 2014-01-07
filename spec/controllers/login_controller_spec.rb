@@ -2,9 +2,12 @@ require 'spec_helper'
 
 describe LoginController do
 
-  it "should have the json, yo" do
+  before :each do
     request.env['omniauth.auth'] = github_json
     get :create, :provider => 'github'
+  end
+
+  it "should set a session with correct response from GitHub" do
     expect(session[:uid]).to eq "1141717"
     # test that we send a post request with the right info to the api
     # we should get a response with the user
