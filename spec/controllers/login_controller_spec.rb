@@ -10,6 +10,8 @@ describe LoginController do
   it "should set a session with correct response from GitHub" do
     expect(session[:uid]).to eq "1141717"
     # test that we send a post request with the right info to the api
+    #Foofoberry.should_receive(:find_or_create_user).with("1141717").and_return("1 2 3 4 5")
+    expect(session[:user_id]).to eq("12")
     # we should get a response with the user
     # then redirect to the dashboard
   end
