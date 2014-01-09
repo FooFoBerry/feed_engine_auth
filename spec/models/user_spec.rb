@@ -16,4 +16,5 @@ describe User do
     user = FactoryGirl.build(:user, :uid => nil)
     expect(user.valid?).to be_false 
   end
+  
 end
