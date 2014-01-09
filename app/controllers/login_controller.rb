@@ -8,8 +8,8 @@ class LoginController < ApplicationController
   def create
     hash = auth_hash
     user = User.find_or_create_by(:uid => hash["uid"])
-    session[:uid] = hash["uid"]
-    session[:user_id] = Foofoberry.find_or_create_user("1141717")
+    cookies[:uid] = hash["uid"]
+    cookies[:user_id] = user.id
     redirect_to dashboard_path
   end
 

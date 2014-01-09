@@ -2,19 +2,18 @@ require 'spec_helper'
 
 describe LoginController do
 
-  # before :each do
-  #   request.env['omniauth.auth'] = github_json
-  #   get :create, :provider => 'github'
-  # end
+  before :each do
+    User.destroy_all
+  end
 
-  xit "should set a cookie with correct response from GitHub" do
+  it "should set a cookie with correct response from GitHub" do
     request.env['omniauth.auth'] = github_json
     get :create, :provider => 'github'
 
     expect(cookies[:uid]).to eq "1141717"
     # test that we send a post request with the right info to the api
     #Foofoberry.should_receive(:find_or_create_user).with("1141717").and_return("1 2 3 4 5")
-    expect(cookies[:user_id]).to eq("12")
+    expect(cookies[:user_id]).not_to be_nil
     # we should get a response with the user
     # then redirect to the dashboard
   end
