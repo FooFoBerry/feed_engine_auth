@@ -7,7 +7,7 @@ describe LoginController do
   #   get :create, :provider => 'github'
   # end
 
-  it "should set a cookie with correct response from GitHub" do
+  xit "should set a cookie with correct response from GitHub" do
     request.env['omniauth.auth'] = github_json
     get :create, :provider => 'github'
 
