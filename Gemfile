@@ -17,6 +17,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'jazz_hands'
   gem 'capybara'
+  gem 'factory_girl_rails'
 end
 
 # Use SCSS for stylesheets

@@ -6,28 +6,22 @@ class LoginController < ApplicationController
   end
 
   def create
-    hash = auth_hash
-    session[:uid] = hash["uid"]
-    session[:user_id] = Foofoberry.find_or_create_user("1141717")
-    redirect_to dashboard_path
+    user = User.find_or_create_by(:uid => auth_hash["uid"]) if auth_hash
+    if user
+      cookies[:uid]     = user.uid
+      cookies[:user_id] = user.id
+      cookies[:flash]   = "Successfully Signed In!"
+      redirect_to dashboard_path
+    else
+      flash[:notice] = "Sorry, something went wrong."
+      redirect_to root_path
+    end
   end
 
   def auth_hash
     request.env['omniauth.auth']
   end
 
-  def post(param)
-
-  end
-
-end
-
-class Foofoberry
-  #this will be the gem  
-  def self.find_or_create_user(user_data)
-    "12"
-    #this will be a post method of some sort
-  end   
 end
 
 
