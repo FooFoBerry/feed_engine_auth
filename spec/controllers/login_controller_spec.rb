@@ -6,8 +6,8 @@ describe LoginController do
     request.env['omniauth.auth'] = github_json
     get :create, :provider => 'github'
 
-    expect(cookies[:uid]).to eq "1141717"
-    expect(cookies[:user_id]).not_to be_nil
+    expect(cookies.signed[:uid]).to eq "1141717"
+    expect(cookies.signed[:user_id]).not_to be_nil
   end
 
   it "should create a user that doesn't exist" do

@@ -8,8 +8,8 @@ class LoginController < ApplicationController
   def create
     user = User.find_or_create_by(:uid => auth_hash["uid"]) if auth_hash
     if user
-      cookies[:uid]     = user.uid
-      cookies[:user_id] = user.id
+      cookies.signed[:uid]     = user.uid
+      cookies.signed[:user_id] = user.id
       cookies[:flash]   = "Successfully Signed In!"
       redirect_to dashboard_path
     else
