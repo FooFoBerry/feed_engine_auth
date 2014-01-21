@@ -50,5 +50,8 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: feed_engine_auth_production
+  database: ffb_auth_production
+  host: localhost
+  username: ffb_auth
+  password: 'auth'
   pool: 5
