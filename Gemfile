@@ -18,6 +18,7 @@ group :development, :test do
   gem 'jazz_hands'
   gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'coveralls'
 end
 
 # Use SCSS for stylesheets
