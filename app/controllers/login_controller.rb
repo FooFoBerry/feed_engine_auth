@@ -10,6 +10,7 @@ class LoginController < ApplicationController
     if user
       cookies.signed[:uid]     = user.uid
       cookies.signed[:user_id] = user.id
+      cookies.signed[:user_name] = auth_hash["info"]["nickname"]
       cookies[:flash]   = "Successfully Signed In!"
       redirect_to dashboard_path
     else
